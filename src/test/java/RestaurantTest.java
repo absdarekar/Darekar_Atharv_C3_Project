@@ -86,6 +86,8 @@ class RestaurantTest
     {
         int orderTotalActual = 388;
         List<String> order = new ArrayList<String>();
+        order.add("Sweet corn soup");
+        order.add("Vegetable lasagne");
 
         int orderTotal = restaurant.calculateOrderTotal(order);
 
