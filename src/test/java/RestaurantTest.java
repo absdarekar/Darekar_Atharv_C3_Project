@@ -2,6 +2,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class RestaurantTest
@@ -65,4 +68,28 @@ class RestaurantTest
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ORDER TOTAL<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void return_price_of_the_given_item_name()
+    {
+        String itemName = "Sweet corn soup";
+        int actualPrice = 119;
+
+        int price = restaurant.getPrice(itemName);
+
+        assertEquals(price,actualPrice);
+    }
+
+    @Test
+    public void calculate_the_total_cost_of_the_order()
+    {
+        int orderTotalActual = 388;
+        List<String> order = new ArrayList<String>();
+
+        int orderTotal = restaurant.calculateOrderTotal(order);
+
+        assertEquals(orderTotal,orderTotalActual);
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ORDER TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
